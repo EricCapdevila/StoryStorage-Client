@@ -8,8 +8,8 @@ class Userbox extends Component {
       <div>
         {isLoggedin ? (
           <div className="drop-down-styles">
-            <p>Welcome {user.username}</p>
-            <button className='button'onClick={logout}>Logout</button>
+            <p className="drop-items">Loged in as: {user.username}</p>
+            <button className='button-drop drop-items'onClick={logout}>Logout</button>
           </div>
         ) : (
           <div className="drop-down-styles">
