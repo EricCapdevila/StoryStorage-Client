@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import { withAuth } from "../lib/AuthProvider";
+import MyProjects from "../components/Myprojects"
+import MyIdeas from "../components/MyIdeas"
+import { Switch, Route } from 'react-router-dom';
+
 class Private extends Component {
   render() {
     return (
       <div>
-        {/* <h1>Welcome {this.props.user.username}</h1> */}
+      <Switch>
+          <Route path="private/ideas" component={MyIdeas}/>
+          <Route path="private/projects" component={MyProjects}/>
+        </Switch>
       </div>
     );
   }
