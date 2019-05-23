@@ -11,6 +11,8 @@ import Login from "./pages/Login";
 import PrivateRoute from "./components/PrivateRoute";
 import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";
+import MyProjects from "./components/Myprojects"
+import MyIdeas from "./components/MyIdeas"
 
 
 
@@ -23,8 +25,9 @@ class App extends Component {
           <Switch>
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
-            {/* <Route path="/" component={Main}/> */}
-            <PrivateRoute path="/private" component={Private}/>
+            {/* <AnonRoute path="/" component={Main}/> */}
+            <PrivateRoute path="/projects" component={MyProjects}/>
+            <PrivateRoute path="/ideas" component={MyIdeas}/>
           </Switch>
         </div>
       </AuthProvider>

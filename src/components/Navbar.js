@@ -11,12 +11,12 @@ const Navbar = () => {
       <div className="nav-top-left">
         <ul>
           <li>
-            <Link to="private/ideas" className="link">
+            <Link to="/ideas" className="link">
             Ideas
             </Link>
           </li>
           <li>
-            <Link to="private/projects"className="link">
+            <Link to="/projects"className="link">
             Projects
             </Link>
           </li>

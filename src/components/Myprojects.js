@@ -1,12 +1,21 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
+import ProjectServices from "./projects-service";
 
 
 class MyProjects extends Component {
-  state = {
-
+  constructor(props){
+    super(props);
+    this.state = {
+        myProjects: [], 
+        newProject: "",
+    }
   }
+
+
+  //this,addnew -- pasarlo a la form 
+
   render() {
     return (
      <div>
