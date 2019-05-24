@@ -52,13 +52,14 @@ class ProjectsManager {
   }
 
   addOne(newProject){
-    const {title, genre, summary} = newProject;
+    const {title, genre, summary, isPrivate} = newProject;
     return this.projects
-      .post("/", {title, genre, summary})
-      .then( () => this.props.history.push('/projects') );
+      .post("/projects/", {title, genre, summary, isPrivate})
+      // .then( () => this.props.history.push('/projects') );
   }
 }
 
-  const ProjectServices = new ProjectsManager();
+const ProjectServices = new ProjectsManager();
+
 
   export default ProjectServices;
