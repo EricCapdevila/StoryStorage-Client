@@ -9,6 +9,7 @@ class MyProjects extends Component {
   constructor(props){
     super(props);
     this.state = {
+      //  allProjects:[],
         myProjects: [], 
     }
   }
@@ -18,26 +19,23 @@ class MyProjects extends Component {
   addNewToList = () =>{}
 
   getMyProjects = () => {
-    console.log(ProjectServices.getAll)
+   
     ProjectServices.getAll()
-    //  .then((projects) => { // no pasa de aqui, si que identifica projectServices.getAll como promise
-      console.log('functionn')
+    .then((projects) => {
       const allMyProjects = projects.filter((project) => {
-        console.log('author', project.author, 'user', this.props.user._id)
-         return project.author===this.props.user._id
-      })
-      this.setState({myProjects: allMyProjects})
+      return project.author===this.props.user._id
     })
-}
+    this.setState({myProjects: allMyProjects})
+    })
+    
+  }
+
 // .then( (apiResponse) => {
 //   const theTask = apiResponse.data;
 //   this.setState(theTask);
 
   componentDidMount() {
    this.getMyProjects();
-    
-    this.setState({myProjects: this.getMyProjects()}
-    )
   }
     
             

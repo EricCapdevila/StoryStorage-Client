@@ -9,7 +9,7 @@ class ProjectsManager {
   }
 
   getAll(){
-    return this.projects.get("/").then(response => response.data);
+    return this.projects.get("/projects/").then(response => response.data);
   }
 
   getOne(id){
