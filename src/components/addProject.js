@@ -8,13 +8,13 @@ import ProjectServices from "./projects-service";
 class AddProject extends Component {
   constructor(props){
       super(props);
-      this.state = { title: "", genre: "", summary: "", isPrivate: false};
+      this.state = { title: "", genre: "Other", summary: "", isPrivate: false};
   }
    
   handleFormSubmit = (event) => {
     event.preventDefault();
     ProjectServices.addOne(this.state)
-    this.setState({ title: "", genre: "", summary: "", isPrivate: false});
+    this.setState({ title: "", genre: "Other", summary: "", isPrivate: false});
     this.props.toggleForm()
     }
 
@@ -53,6 +53,7 @@ class AddProject extends Component {
           name="genre" 
           value={this.state.genre} 
           onChange={ (e) => this.handleChange(e) }>
+            <option >--Choose One--</option>
             <option value="Science Fiction">Science Fiction</option>
             <option value="Fantasy">Fantasy</option>
             <option value="Romance">Romance</option>
@@ -66,7 +67,7 @@ class AddProject extends Component {
           <input type="checkbox" 
           onChange={ (e) => this.handleRadioChange(e) }/>
                     
-          <input type="submit" value="Create" />
+          <input type="submit" value="submit" />
         </form>
 
      

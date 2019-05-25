@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import ProjectServices from "./projects-service";
 import AddProject from "./addProject";
