@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import ProjectServices from "./projects-service";
 import AddProject from "./addProject";
@@ -8,62 +8,64 @@ import AddProject from "./addProject";
 class MyProjects extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      //  allProjects:[],
-        myProjects: [], 
-    }
+    this.state = {myProjects: [], showingForm: false}
   }
 
   
-  //make a method to send the new project to the myProjects array so it is rendered, do a setState
-  addNewToList = () =>{}
-
   getMyProjects = () => {
-   
     ProjectServices.getAll()
     .then((projects) => {
       const allMyProjects = projects.filter((project) => {
       return project.author===this.props.user._id
     })
     this.setState({myProjects: allMyProjects})
-    })
-    
+    }) 
   }
 
-// .then( (apiResponse) => {
-//   const theTask = apiResponse.data;
-//   this.setState(theTask);
-
   componentDidMount() {
-   this.getMyProjects();
+  this.getMyProjects();
+}
+  toggleForm = () => {
+    this.setState({showingForm: !this.state.showingForm})
   }
     
             
   render() {
     return (
-     <div>
-      <AddProject/>
-      
+     <div>      
       {      
-        !this.state.myProjects?
+        !this.state.myProjects.length===0?
           
-          <div>THere are no ojects to display</div>
-                
+          <div>There are no objects to display</div>
         :  
+        <div className="myProjects">
+          {
             (this.state.myProjects.map( (project) => {
               return (
                 <div key={project._id}>
                   <Link to={`/projects/${project._id}`}>
-                    <h3>{project.title}</h3>
-                    <p>{project.summary} </p>
+                    <div className='projectCards'>
+                      <h3>{project.title}</h3>
+                      <p>{project.summary} </p>
+                    </div>
                   </Link>
                 </div>
               )
-            })
-            )    
+              })
+            )
+          }  
+        </div>  
       }
-      
-     </div>
+        {
+          this.state.showingForm?
+          (<div className="popup-back" >
+          <button onClick={this.toggleForm} className="ex-button">x</button>
+          <AddProject toggleForm= {this.toggleForm}/>
+          </div>)
+          :
+          <button onClick={this.toggleForm} className="plus-button">+</button>
+        }
+      </div>
     );
   }
 }

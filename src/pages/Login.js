@@ -22,7 +22,7 @@ class Login extends Component {
     const { username, password } = this.state;
     return (
       <div className="authBox">
-      <form onSubmit={this.handleFormSubmit}>
+      <form onSubmit={this.handleFormSubmit} className="auth-form">
         <h2>Login</h2>
         <hr/>
         <label>Username:</label>

@@ -1,7 +1,7 @@
 // components/projects/AddProject.js
 
 import React, { Component } from 'react';
-import { Route, Redirect } from "react-router-dom";
+// import { Route, Redirect } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 import ProjectServices from "./projects-service";
 
@@ -13,15 +13,9 @@ class AddProject extends Component {
    
   handleFormSubmit = (event) => {
     event.preventDefault();
-      
     ProjectServices.addOne(this.state)
-      
-      // ProjectServices.addOne(newProject){
-      //   const {title, genre, summary} = newProject;
-      //   return this.projects
-      //   .post("/", {title, genre, summary})
-      //   .then( () => this.props.history.push('/projects') );
-      // }
+    this.setState({ title: "", genre: "", summary: "", isPrivate: false});
+    this.props.toggleForm()
     }
 
   handleChange = (event) => {  
@@ -35,12 +29,11 @@ class AddProject extends Component {
       isPrivate: !this.state.isPrivate
     })
   }
-
+ 
   render(){
     return(
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          
+      
+        <form onSubmit={this.handleFormSubmit} className="auth-form absolute">
           <label>Title:</label>
           <input type="text" 
             name="title" 
@@ -73,9 +66,10 @@ class AddProject extends Component {
           <input type="checkbox" 
           onChange={ (e) => this.handleRadioChange(e) }/>
                     
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Create" />
         </form>
-      </div>
+
+     
     )
   }
 }

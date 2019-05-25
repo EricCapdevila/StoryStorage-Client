@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Switch, Route} from "react-router-dom";
+import { Switch} from "react-router-dom";
 
 import '../src/styles/App.css';
 
 import Navbar from "./components/Navbar";
-import Private from "./pages/Private";
+// import Private from "./pages/Private";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
@@ -13,7 +13,6 @@ import AnonRoute from "./components/AnonRoute";
 import AuthProvider from "./lib/AuthProvider";
 import MyProjects from "./components/Myprojects"
 import MyIdeas from "./components/MyIdeas"
-
 
 
 class App extends Component {
