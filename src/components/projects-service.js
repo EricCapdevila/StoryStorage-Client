@@ -13,12 +13,7 @@ class ProjectsManager {
   }
 
   getOne(id){
-    axios.get(`/projects/${id}`)
-      .then( (project) =>{
-        const theProject = project.data;
-        return theProject;
-      })
-      .catch((err) => console.log(err));
+   return this.projects.get(`/projects/${id}`).then( project => project.data);
   }
 
   deleteOne(id){

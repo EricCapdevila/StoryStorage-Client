@@ -3,12 +3,23 @@
   padding:0;
 }
 
-body{
-  height: 100vh;
+.bookshelf-background{
+  height: 90vh;
   background-image: url('booksBackground.jpg');
   background-repeat:no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
+.bookpage-background{
+  height: 90vh;
+  background-image: url('bookpages.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
 nav{
   background-color: rgb(41, 16, 16);
   display: flex;
@@ -20,6 +31,8 @@ input{
   border-radius:10px;
   padding: 5px;
   font-size:1.25em;
+  height:10%;
+  width:20vw;
 }
 textarea{
   border-radius:10px;
@@ -141,10 +154,6 @@ ul li img{
   color: rgb(160, 142, 110)
 }
 
-input{
-  height:10%;
-  width:20vw;
-}
 
 hr{
   border-color:rgb(160, 142, 110);
@@ -199,16 +208,19 @@ hr{
 
 .ex-button{
   background-color: rgb(41, 16, 16);
-  width:100px;
-  height:100px;
+  width:70px;
+  height:70px;
   border-radius: 100%;
   color: rgb(160, 142, 110);
-  font-size:80px;
+  font-size:3em;
   border: none;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  
+}
+.ex-button:hover{
+  color:  rgb(41, 16, 16);
+  background-color:rgb(160, 142, 110);
 }
 .plus-button {
   background-color: rgb(41, 16, 16);
@@ -232,12 +244,21 @@ hr{
   background-color: rgba(251, 248, 248, 0.438);
   position: absolute;
   flex-direction:column;
-  top: 9vh;
+  top: 9.5vh;
   width: 100vw;
-  height: 91vh;
+  height: 89vh;
   display: flex;
   justify-content: center;
   align-items: center;
+ }
+ .form-section{
+   display:flex;
+   justify-content: space-between;
+   width: 71%;
+ }
+ .checkbox {
+   width:10%;
+   height: 100%;
  }
 
 

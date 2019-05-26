@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { withAuth } from "../lib/AuthProvider";
 
@@ -7,7 +7,7 @@ import Userbox from "./Userbox";
 const Navbar = () => {
   return (
     <nav className="nav-style">
-      <img src='logo.png' alt='StoryStorage Logo'/>
+      <a href="/"><img src='logo.png' alt='StoryStorage Logo'/></a>
       <div className="nav-top-left">
         <ul>
           <li>

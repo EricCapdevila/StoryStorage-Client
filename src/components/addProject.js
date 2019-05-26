@@ -48,6 +48,7 @@ class AddProject extends Component {
             cols={40} rows={10}/>
           </div>
 
+          <div className='form-section'>
           <label>Genre:</label>
           <select 
           name="genre" 
@@ -62,11 +63,13 @@ class AddProject extends Component {
             <option value="Crime">Crime</option>
             <option value="Other">Other</option>
           </select>
+          </div>
          
+          <div className='form-section'>
           <label>Private:</label>      
-          <input type="checkbox" 
+          <input type="checkbox" className='checkbox'
           onChange={ (e) => this.handleRadioChange(e) }/>
-                    
+          </div>   
           <input type="submit" value="submit" />
         </form>
 

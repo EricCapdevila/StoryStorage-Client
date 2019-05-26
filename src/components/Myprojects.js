@@ -29,10 +29,9 @@ class MyProjects extends Component {
     this.setState({showingForm: !this.state.showingForm})
   }
     
-            
   render() {
     return (
-     <div>      
+     <div className= 'bookpage-background'>      
       {      
         !this.state.myProjects.length===0?
           
