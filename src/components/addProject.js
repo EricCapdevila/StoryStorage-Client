@@ -13,6 +13,7 @@ class AddProject extends Component {
    
   handleFormSubmit = (event) => {
     event.preventDefault();
+    window.location.reload()
     ProjectServices.addOne(this.state)
     this.setState({ title: "", genre: "Other", summary: "", isPrivate: false});
     this.props.toggleForm()

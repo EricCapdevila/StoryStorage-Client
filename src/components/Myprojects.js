@@ -8,23 +8,35 @@ import AddProject from "./addProject";
 class MyProjects extends Component {
   constructor(props){
     super(props);
-    this.state = {myProjects: [], showingForm: false}
+    this.state = {
+      myProjects: [], 
+      clickedObject:[],
+      showingForm: false,
+    }
   }
 
-  
   getMyProjects = () => {
     ProjectServices.getAll()
     .then((projects) => {
       const allMyProjects = projects.filter((project) => {
       return project.author===this.props.user._id
     })
-    this.setState({myProjects: allMyProjects})
+    this.setState({myProjects: allMyProjects, originalProjects:allMyProjects})
     }) 
   }
+ 
+  // refreshIfDeletion=()=>{
+  //   if(this.state.myProjects.length!==this.state.originalProjects.length){
+  //     window.location.reload()
+  //     console.log('updating cause different length')
+  //   }
+  // }
 
   componentDidMount() {
   this.getMyProjects();
-}
+  //  window.location.reload();
+  }
+  
   toggleForm = () => {
     this.setState({showingForm: !this.state.showingForm})
   }
@@ -43,10 +55,10 @@ class MyProjects extends Component {
               return (
                 <div key={project._id}>
                   <Link to={`/projects/${project._id}`}>
-                    <div className='projectCards'>
+                    <span className='projectCards'>
                       <h3>{project.title}</h3>
                       <p>{project.summary} </p>
-                    </div>
+                    </span>
                   </Link>
                 </div>
               )

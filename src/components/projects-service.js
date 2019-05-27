@@ -17,8 +17,14 @@ class ProjectsManager {
   }
 
   deleteOne(id){
-    axios.delete(`/projects/${id}`)
-    .then( () => this.props.history.push('/projects') )
+    return this.projects.delete(`/projects/${id}`)
+    .then( (res) => {
+
+      console.log('delete response',res)
+
+      return res
+      
+    } )
     .catch( (err) => console.log(err));
   }
 
@@ -30,18 +36,15 @@ class ProjectsManager {
     timeline, misc, author, 
     opinions, isPrivate  } = updates
 
-    axios.put(`/projects/${id}`,
+    return this.projects.put(`/projects/${id}`,
     {
       title, genre,
       summary, chapters, 
       characters, locations, 
       timeline, misc, author, 
       opinions, isPrivate  })
-    .then( () => {
-      this.getOne(id)
-      // this.props.getTheProject();						//  <---  hmmm
-      // this.props.history.push('/projects');    
-      // after submitting the form, redirect to '/projects'
+    .then( (response) => {
+      return response.data
     })
      .catch( (err) => console.log(err) )
   }

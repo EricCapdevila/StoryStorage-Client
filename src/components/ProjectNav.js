@@ -11,18 +11,16 @@ const ProjectNav = (props) => {
   const renderTimeline=()=>props.handleEditor('timeline')
  
     return (
-     <div>
-      <h1>THIS IS THE NAVBAR</h1>
-      <ul>
-        <li><button onClick={renderGeneral}>General</button></li>
-        <li><button onClick={renderChapters}>Chapters</button></li>
-        <li><button onClick={renderCharacters}>Characters</button></li>
-        <li><button onClick={renderLocations}>Locations</button></li>
-        <li><button onClick={renderTimeline}>Timeline</button></li>
-        <li><button onClick={renderOpinions}>Opinions</button></li>
-        <li></li>
-      </ul>
-     </div>
+      <aside className='side-nav'>
+        <ul>
+          <li><button onClick={renderGeneral}>General</button></li>
+          <li><button onClick={renderChapters}>Chapters</button></li>
+          <li><button onClick={renderCharacters}>Characters</button></li>
+          <li><button onClick={renderLocations}>Locations</button></li>
+          <li><button onClick={renderTimeline}>Timeline</button></li>
+          <li><button onClick={renderOpinions}>Opinions</button></li>
+        </ul>
+      </aside>
     );
   }
 

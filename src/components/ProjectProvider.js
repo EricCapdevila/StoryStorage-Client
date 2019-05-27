@@ -17,13 +17,14 @@ class ProjectProvider extends React.Component {
     super(props);
     const id = this.props.match.params.id;
     this.state = {
-      project:{},
+      project:null,
       id:id,
-      render:''
+      render:'',
+      updatesReceived:false,
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     ProjectServices.getOne(this.state.id)
       .then((project) => {
         this.setState({project: project})
@@ -31,22 +32,54 @@ class ProjectProvider extends React.Component {
 
   }
 
-  update=(content)=>{
-    ProjectServices.updateOne(this.state.id, content)
-      .then((project) => this.setState({project: project}))
+  componentDidUpdate(){
+    this.updateDB()
   }
-  delete=()=>{
-    ProjectServices.deleteOne(this.state.id)
+
+    
+  updateDB=()=>{
+    if(this.state.updatesReceived){
+      // console.log(ProjectServices.updateOne())
+      console.log('provider updated',this.state)
+      ProjectServices.updateOne(this.state.id, this.state.project)
+    .then((project) => {
+      // console.log('response')
+      this.setState({project: project})})
+    this.setState({updatesReceived: false})
+    }else{
+      // console.log('nothing received')
+    }
+  }
+  
+  
+  updateGeneral=(content)=>{
+    console.log('content',content)
+    this.setState({ project:content })
+     
+  }
+    
+  delete=(id)=>{
+    ProjectServices.deleteOne(id)
   }
 
   handleEditor = (page) =>{
     this.setState({render: page})
   }
 
+  toggleUpdatesReceived=()=>{
+    this.setState({updatesReceived:true})
+  }
+
   
   render() {
-    console.log(this.state.project)
-    const projectTools = {project:this.state.project, update: this.update, deleteProject: this.delete };
+    
+    const projectTools = {
+      project:this.state.project, 
+      updateGeneral: this.updateGeneral, 
+      deleteProject: this.delete,
+      sent: this.toggleUpdatesReceived,
+      id: this.props.match.params.id
+      };
 
     let section = this.state.render
     switch (section){
@@ -72,11 +105,11 @@ class ProjectProvider extends React.Component {
       section = <General {...projectTools}/>
       break;
     }
-       
+      
     return (
     <div>
         <ProjectNav handleEditor={this.handleEditor}/>
-        {section}
+        {section.props.project ? section : null}
     </div>
     
     );
