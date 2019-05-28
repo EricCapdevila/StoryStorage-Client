@@ -34,7 +34,7 @@ class MyProjects extends Component {
 
   componentDidMount() {
   this.getMyProjects();
-  //  window.location.reload();
+  
   }
   
   toggleForm = () => {

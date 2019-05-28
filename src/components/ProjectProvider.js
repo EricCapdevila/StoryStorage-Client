@@ -9,7 +9,6 @@ import Characters from './ProjectEditor/characters'
 import Chapters from './ProjectEditor/chapters'
 import Locations from './ProjectEditor/locations'
 import Timeline from './ProjectEditor/timeline'
-import Opinions from './ProjectEditor/opinions'
 
 
 class ProjectProvider extends React.Component {
@@ -98,18 +97,20 @@ class ProjectProvider extends React.Component {
       case 'timeline':
        section =  <Timeline {...projectTools}/>
       break;
-      case 'opinions':
-       section =  <Opinions {...projectTools}/>
-      break;
       default : 
-      section = <General {...projectTools}/>
+      
       break;
     }
       
     return (
-    <div>
+    <div className="project-editor">
         <ProjectNav handleEditor={this.handleEditor}/>
-        {section.props.project ? section : null}
+        {
+          this.state.project ? 
+        section 
+        : 
+        <h2>No Project to display</h2> 
+        }
     </div>
     
     );

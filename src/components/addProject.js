@@ -13,7 +13,7 @@ class AddProject extends Component {
    
   handleFormSubmit = (event) => {
     event.preventDefault();
-    window.location.reload()
+    // window.location.reload()
     ProjectServices.addOne(this.state)
     this.setState({ title: "", genre: "Other", summary: "", isPrivate: false});
     this.props.toggleForm()
@@ -43,7 +43,7 @@ class AddProject extends Component {
 
           <label>Summary:</label>
           <div>
-          <textarea name="summary" 
+          <textarea maxlength="300"name="summary" 
             value={this.state.summary} 
             onChange={ (e) => this.handleChange(e) } 
             cols={40} rows={10}/>

@@ -1,7 +1,6 @@
 
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-
+import Opinions from './opinions'
 
 class General extends Component {
 
@@ -35,7 +34,7 @@ class General extends Component {
     genre:project.genre,
     isPrivate:project.isPrivate
     })
-
+   console.log('general props',this.props)
   }
 
 
@@ -63,7 +62,7 @@ class General extends Component {
   }
 
   deleteProject = () => {
-    console.log('props',this.props)
+    window.location.reload();
     this.props.deleteProject(this.props.id)
   }
  
@@ -71,7 +70,6 @@ class General extends Component {
   render() {
     return (
       <div className="project-component">
-  
       <form onSubmit={(e) => this.sendUpdates(e)} >
       <div className="save-delete">  
           <button type="submit" value="Save Changes" className="editor-button">Save</button>
@@ -109,10 +107,7 @@ class General extends Component {
   
       </div>
       </form>
-      {/* <Link  to="/projects"className="link">
-            go to projects
-            </Link> */}
-      {/* <Opinions/> */}
+          <Opinions id = {this.props.id}/>
       </div>
     );
   }
