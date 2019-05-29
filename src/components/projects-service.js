@@ -49,6 +49,7 @@ class ProjectsManager {
     })
      .catch( (err) => console.log(err) )
   }
+ 
 
   addOne(newProject){
     const {title, genre, summary, isPrivate} = newProject;

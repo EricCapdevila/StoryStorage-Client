@@ -10,27 +10,21 @@ class MyProjects extends Component {
     super(props);
     this.state = {
       myProjects: [], 
-      clickedObject:[],
       showingForm: false,
     }
   }
 
   getMyProjects = () => {
+    console.log('hola')
     ProjectServices.getAll()
     .then((projects) => {
       const allMyProjects = projects.filter((project) => {
-      return project.author._id===this.props.user._id
-    })
-    this.setState({myProjects: allMyProjects, originalProjects:allMyProjects})
+        return project.author._id===this.props.user._id
+      })
+      this.setState({myProjects: allMyProjects, originalProjects:allMyProjects})
     }) 
   }
- 
-  // refreshIfDeletion=()=>{
-  //   if(this.state.myProjects.length!==this.state.originalProjects.length){
-  //     window.location.reload()
-  //     console.log('updating cause different length')
-  //   }
-  // }
+
 
   componentDidMount() {
   this.getMyProjects();
@@ -71,7 +65,7 @@ class MyProjects extends Component {
           this.state.showingForm?
           (<div className="popup-back" >
           <button onClick={this.toggleForm} className="ex-button">x</button>
-          <AddProject toggleForm= {this.toggleForm}/>
+          <AddProject getProjects={this.getMyProjects} toggleForm= {this.toggleForm}/>
           </div>)
           :
           <button onClick={this.toggleForm} className="plus-button">+</button>

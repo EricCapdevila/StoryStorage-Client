@@ -15,8 +15,13 @@ class AddProject extends Component {
     event.preventDefault();
     // window.location.reload()
     ProjectServices.addOne(this.state)
-    this.setState({ title: "", genre: "Other", summary: "", isPrivate: false});
-    this.props.toggleForm()
+    .then(()=>{
+      this.setState({ title: "", genre: "Other", summary: "", isPrivate: false});
+      this.props.getProjects()
+      this.props.toggleForm()
+    })
+    
+    
     }
 
   handleChange = (event) => {  

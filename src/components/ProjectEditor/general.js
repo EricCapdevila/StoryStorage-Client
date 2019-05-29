@@ -34,7 +34,7 @@ class General extends Component {
     genre:project.genre,
     isPrivate:project.isPrivate
     })
-   console.log('general props',this.props)
+   
   }
 
 

@@ -39,7 +39,7 @@ class ProjectProvider extends React.Component {
   updateDB=()=>{
     if(this.state.updatesReceived){
       // console.log(ProjectServices.updateOne())
-      console.log('provider updated',this.state)
+      // console.log('provider updated',this.state)
       ProjectServices.updateOne(this.state.id, this.state.project)
     .then((project) => {
       // console.log('response')
@@ -52,7 +52,7 @@ class ProjectProvider extends React.Component {
   
   
   updateGeneral=(content)=>{
-    console.log('content',content)
+    // console.log('content',content)
     this.setState({ project:content })
      
   }

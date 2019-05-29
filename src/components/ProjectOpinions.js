@@ -8,7 +8,7 @@ class ProjectOpinions extends Component{
     this.state = {
       opinions:[],
       newOpinion:{
-        username:'',
+        user:'',
         comment:'',
         rating:''
       }
@@ -34,10 +34,10 @@ class ProjectOpinions extends Component{
 
   handleChange=(e)=>{
 
-    let valueHolder = {...this.state.newOpinion,username: this.props.user.username};
+    let valueHolder = {...this.state.newOpinion,user: this.props.user.username};
     const { value, name} = e.target;
     valueHolder[name]=value
-     console.log('currentstate',this.state.opinions)
+    //  console.log('currentstate',this.state.opinions)
 
     this.setState({
       newOpinion:{...valueHolder}
@@ -46,13 +46,13 @@ class ProjectOpinions extends Component{
 
   updateArray = () => {
     let updatedArray = this.state.opinions.concat(this.state.newOpinion);
-     console.log('opinions updated', this.state.opinions, 'newopinion', this.state.newOpinion)
+    //  console.log('opinions updated', this.state.opinions, 'newopinion', this.state.newOpinion)
     this.setState({opinions:updatedArray})
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault()
-     console.log('updatedarray',this.state.opinions, 'the new one',this.state.newOpinion)
+    //  console.log('updatedarray',this.state.opinions, 'the new one',this.state.newOpinion)
     ProjectServices.updateOne(this.props.project._id, this.state)
   }
 
@@ -67,31 +67,35 @@ class ProjectOpinions extends Component{
           <p>by {author.username}</p>
           <p>{summary}</p>
         </div>
+        <div className="project-comments">
+          <div className="comments-only">
         {
-          (this.state.opinions.map((opinion)=>{
-            return(
-            <div className="oneOpinion" key={opinion._id}>
-              <p className="user">{opinion.username}</p>
-              <p className="comment">{opinion.comment}</p>
-              <p className="rating">{opinion.rating}</p>
-            </div>
-            )
-          }))
-        }
-        <div>
-          <form onSubmit={this.handleFormSubmit}>
-            <label>Rate</label>
-            <input type="number" name="rating" 
-            onChange= {(e) => this.handleChange(e)}
-            value={this.state.newOpinion.rate}/>
+            (this.state.opinions.map((opinion)=>{
+              return(
+              <div className="oneOpinion" key={opinion._id}>
+                <p className="user">{opinion.user}</p>
+                <p className="comment">{opinion.comment}</p>
+                <p className="rating">{opinion.rating}</p>
+              </div>
+              )
+            }))
+          }
+          </div>
+          <div>
+            <form onSubmit={this.handleFormSubmit}>
+              <label>Rate</label>
+              <input type="number" name="rating" 
+              onChange= {(e) => this.handleChange(e)}
+              value={this.state.newOpinion.rate}/>
 
-            <label>Comment</label>
-            <input type="text" name="comment" 
-            onChange= {(e) => this.handleChange(e)}
-            value={this.state.newOpinion.comment}/>
-            
-            <button action='submit' onClick={this.updateArray}>Send</button>
-          </form>
+              <label>Comment</label>
+              <input type="text" name="comment" 
+              onChange= {(e) => this.handleChange(e)}
+              value={this.state.newOpinion.comment}/>
+              
+              <button action='submit' onClick={this.updateArray}>Send</button>
+            </form>
+          </div>
         </div>
       </section>
 
