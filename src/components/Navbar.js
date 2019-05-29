@@ -7,7 +7,7 @@ import Userbox from "./Userbox";
 const Navbar = () => {
   return (
     <nav className="nav-style">
-      <a href="/"><img src='logo.png' alt='StoryStorage Logo'/></a>
+      <a href="/"><img src='logoBright.png' alt='StoryStorage Logo'/></a>
       <div className="nav-top-left">
         <ul>
           <li>

@@ -19,7 +19,7 @@ class MyProjects extends Component {
     ProjectServices.getAll()
     .then((projects) => {
       const allMyProjects = projects.filter((project) => {
-      return project.author===this.props.user._id
+      return project.author._id===this.props.user._id
     })
     this.setState({myProjects: allMyProjects, originalProjects:allMyProjects})
     }) 

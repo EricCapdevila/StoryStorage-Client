@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
  import { withAuth } from "../lib/AuthProvider";
 import ProjectServices from "./projects-service";
+import ProjectOpinions from "../components/ProjectOpinions"
 
 
 
@@ -34,18 +35,11 @@ class Main extends Component {
           
           <div>There are no objects to display</div>
         :  
-        <div className="myProjects">
+        <div className="mainPage">
           {
             (this.state.PublicProjects.map( (project) => {
-              return (
-                <div key={project._id}>
-                  {/* <Link to={`/projects/${project._id}`}> */}
-                    <div className='projectCards'>
-                      <h3>{project.title}</h3>
-                      <p>{project.summary} </p>
-                    </div>
-                  {/* </Link> */}
-                </div>
+              return(
+                  <ProjectOpinions key={project._id} project={project}/>
               )
               })
             )

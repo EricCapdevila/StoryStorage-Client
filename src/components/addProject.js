@@ -43,7 +43,7 @@ class AddProject extends Component {
 
           <label>Summary:</label>
           <div>
-          <textarea maxlength="300"name="summary" 
+          <textarea maxLength="300"name="summary" 
             value={this.state.summary} 
             onChange={ (e) => this.handleChange(e) } 
             cols={40} rows={10}/>

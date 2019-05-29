@@ -33,7 +33,7 @@ class Opinions extends Component {
               (this.state.opinions.map((opinion) => {
                 return(
                   <div className="oneOpinion">
-                    <p className="user">{opinion.user.username}</p>
+                    <p className="user">{opinion.user}</p>
                     <p className="comment">{opinion.comment}</p>
                     <p className="rating">{opinion.rating}</p>
                   </div>

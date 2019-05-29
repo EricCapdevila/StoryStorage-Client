@@ -435,6 +435,8 @@ hr{
   text-align:center;
   font-size:2em;
   font-weight:800;
+  background-color:rgb(160, 142, 110);
+  color: rgb(41, 16, 16);
 }
 .opinions{
   
@@ -466,6 +468,64 @@ hr{
   justify-self:flex-end;
 }
 
+.mainPage{
+  overflow-y: scroll;
+  margin: 5%;
+}
+
+.project-comment-card{
+  background-color:rgb(160, 142, 110);
+  display:flex;
+  padding: 2%;
+  margin: 5%;
+  max-height:250px;
+}
+
+.project-description{
+  display:flex;
+  flex-direction:column;
+  align-content:center;
+  width: 30%;
+  text-overflow: ellipsis;
+  overflow-y:scroll;
+
+
+}
+.project-description p:nth-of-type(1){
+ 
+  font-weight:300;
+  font-style: italic;
+  
+}
+.project-description h3 {
+  font-size: 1.20em;
+  text-align:center;
+}
+.project-description p:nth-of-type(2){
+  text-align:center;
+}
+.project-description p:nth-of-type(3){
+  text-overflow: ellipsis;
+  margin-top: 15px;
+}
+
+
+::-webkit-scrollbar {
+  width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+  background:black; 
+  border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+  background:rgb(54, 56, 58); }
 
 /* {
 color:rgb(41, 16, 16);
