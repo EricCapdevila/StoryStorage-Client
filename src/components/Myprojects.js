@@ -28,7 +28,6 @@ class MyProjects extends Component {
 
   componentDidMount() {
   this.getMyProjects();
-  
   }
   
   toggleForm = () => {

@@ -11,6 +11,11 @@ class ProjectOpinions extends Component{
         user:'',
         comment:'',
         rating:''
+      },
+      emptyFields:{
+        user:'',
+        comment:'',
+        rating: ''
       }
     }
   }
@@ -19,22 +24,18 @@ class ProjectOpinions extends Component{
     this.setState({opinions: this.props.project.opinions });
   }
 
-  // handleRate=(e)=>{
-  //   console.log('the e.targetrate', e.target)
-  //   const { value} = e.target;
-  //   this.setState({newOpinion:{username: this.props.user.username, rate:value, comment:this.state.newOpinion.comment}})
-  //   console.log(this.state.newOpinion)
-  // }
-  // handleComment=(e)=>{
-  //   console.log('the e.target commnet', e.target)
-  //   const { value} = e.target;
-  //   this.setState({newOpinion:{username: this.props.user.username, comment:value, rate:this.state.newOpinion.comment}})
-  //   console.log(this.state.newOpinion)
-  // }
+
+  checkAnonymus=()=>{
+    if(this.props.isLogedin){
+     return this.props.user.username  
+    }else{
+      return 'Anonymus' 
+    }
+  }
 
   handleChange=(e)=>{
 
-    let valueHolder = {...this.state.newOpinion,user: this.props.user.username};
+    let valueHolder = {...this.state.newOpinion, user: this.checkAnonymus()};
     const { value, name} = e.target;
     valueHolder[name]=value
     //  console.log('currentstate',this.state.opinions)
@@ -46,14 +47,13 @@ class ProjectOpinions extends Component{
 
   updateArray = () => {
     let updatedArray = this.state.opinions.concat(this.state.newOpinion);
-    //  console.log('opinions updated', this.state.opinions, 'newopinion', this.state.newOpinion)
     this.setState({opinions:updatedArray})
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault()
-    //  console.log('updatedarray',this.state.opinions, 'the new one',this.state.newOpinion)
     ProjectServices.updateOne(this.props.project._id, this.state)
+    this.setState({newOpinion:this.state.emptyFields})
   }
 
   render() {
@@ -82,9 +82,11 @@ class ProjectOpinions extends Component{
           }
           </div>
           <div>
-            <form onSubmit={this.handleFormSubmit}>
+
+            <form className="add-comment" onSubmit={this.handleFormSubmit}>
               <label>Rate</label>
               <input type="number" name="rating" 
+              max="10" min="0" 
               onChange= {(e) => this.handleChange(e)}
               value={this.state.newOpinion.rate}/>
 
@@ -93,7 +95,7 @@ class ProjectOpinions extends Component{
               onChange= {(e) => this.handleChange(e)}
               value={this.state.newOpinion.comment}/>
               
-              <button action='submit' onClick={this.updateArray}>Send</button>
+              <button action='submit' onClick={this.updateArray}>√</button>
             </form>
           </div>
         </div>

@@ -18,7 +18,7 @@ class ProjectProvider extends React.Component {
     this.state = {
       project:null,
       id:id,
-      render:'',
+      render:'general',
       updatesReceived:false,
     };
   }

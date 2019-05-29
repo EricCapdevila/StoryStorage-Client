@@ -52,7 +52,9 @@ class Opinions extends Component {
                     <p className="user">{opinion.user}</p>
                     <p className="comment">{opinion.comment}</p>
                     <p className="rating">{opinion.rating}</p>
-                    <button onClick={()=>this.handleChange(opinion._id)}>delete</button>
+                    <button 
+                    className="delete"
+                    onClick={()=>this.handleChange(opinion._id)}>x</button>
                   </div>
                 )
               }))

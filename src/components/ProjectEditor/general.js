@@ -73,7 +73,7 @@ class General extends Component {
       <form onSubmit={(e) => this.sendUpdates(e)} >
       <div className="save-delete">  
           <button type="submit" value="Save Changes" className="editor-button">Save</button>
-          <button href="/projects" onClick={this.deleteProject} className="editor-button">Delete</button>
+          <button href="/projects" onClick={this.deleteProject} className="editor-button delete">Delete</button>
       </div>
       <div className="form-under-buttons">
       <h1 id='title' contentEditable >{this.state.titlePlaceholder}</h1>

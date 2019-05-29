@@ -25,7 +25,6 @@ nav{
   background-color: rgb(41, 16, 16);
   display: flex;
   flex-direction:row;
-  width:100vw;
   justify-content: space-between;
 }
 input{
@@ -133,10 +132,14 @@ ul li img{
 }
 
 .authBox{
-  margin-top: 20vh;
   display:flex;
   align-items:center;
   justify-content: space-around;
+  height: 90.5vh;
+  background-image: url('booksBackground.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+  display: flex;
 }
 
 .auth-form{
@@ -160,12 +163,12 @@ hr{
   width: 70%;
 }
 .button{
-  width:20%;
+  width:300px;
   color: rgb(160, 142, 110);
   background-color: rgb(41, 16, 16);
   margin:1%;
   font-size:100%;
-  border-radius: 10%;
+  border-radius: 20px;
   border: rgb(160, 142, 110) solid 1px;
   outline:none;
 }
@@ -265,6 +268,16 @@ hr{
   width: 30px;
   height: 30px;
  }
+ select{
+  background-color:rgb(160, 142, 110);
+  color: rgb(41, 16, 16);
+  border:solid 1px rgb(41, 16, 16);
+  box-shadow: none;
+  height:30px;
+ }
+ option:hover{
+   background-color:rgb(41, 16, 16)
+ }
 
  .projectCards{
   background-color: rgb(41, 16, 16);
@@ -333,7 +346,7 @@ hr{
   font-weight:800;
   border-radius: 10%;
 }
-.save-delete button:last-of-type{
+.delete{
   color:rgb(30, 0, 0);
   background-color:rgb(130, 20, 20);
   border: none;
@@ -430,31 +443,41 @@ hr{
   background-repeat:no-repeat;
   background-size: cover;
   
+  
 }
 
 .no-opinions{
-  width:100%;
+  width: 100%;
   height: 100%;
-  text-align:center;
-  font-size:2em;
-  font-weight:800;
-  background-color:rgb(160, 142, 110);
+  text-align: center;
+  font-size: 4em;
+  font-weight: 800;
+  background-color: rgb(160, 142, 110);
   color: rgb(41, 16, 16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .oneOpinion{
-  background-color:rgb(160, 142, 110);
   color: rgb(41, 16, 16);
-  font-weight: 700;
-  margin-bottom:5%;
-  padding: 1%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  border: rgb(41, 16, 16) 3px solid;
+  background-color: rgb(160, 142, 110);
+  border-radius: 20px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  height: 25%;
+  align-items: center;
+  margin: 7px 4px;
 }
+
 
 .oneOpinion p {
   margin:3%;
+}
+.oneOpinion button {
+  margin-left:3px;
 }
 .oneOpinion p:nth-of-type(1){
   font-size: 1.20em;
@@ -474,12 +497,13 @@ hr{
 }
 
 .project-comment-card{
-  background-color:rgb(160, 142, 110);
+  background-color:rgb(41, 16, 16);
   display:flex;
   padding: 2%;
   margin: 5%;
   max-height:250px;
-  justify-content: space-around
+  justify-content: space-around;
+  border-radius: 20px;
 }
 
 .project-description{
@@ -488,9 +512,19 @@ hr{
   align-content:center;
   width: 30%;
   overflow-y:scroll;
-
+  border-radius: 20px;
+  padding: 2%;
+  background-color:rgb(160, 142, 110);
 
 }
+.project-comments{
+  width: 63%;
+  width: 63%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .project-description p:nth-of-type(1){
  
   font-weight:300;
@@ -520,21 +554,48 @@ hr{
   }
   
   ::-webkit-scrollbar-thumb {
-  background:black; 
+  border:black solid 3px;
+  background-color:rgb(160, 142, 110);
   border-radius: 10px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
   background:rgb(54, 56, 58); }
 
-  .project-comments{
-  
-  }
+ 
   .comments-only{
     overflow-y:scroll;
-    height: 85%;
+    height: 80%;
   }
 
+  .add-comment{
+    margin-top: 12px;
+    display: flex;
+    color: rgb(165, 161, 161);
+    justify-content: space-around;
+  }
+  .add-comment input{
+    background-color: rgb(168, 156, 133);
+    border:none;
+  }
+  .add-comment input:nth-of-type(1){
+    width:70px;
+    border:none;
+  }
+  .add-comment label{
+    font-size:2em;
+    margin-left:20px;
+  }
+  .add-comment button{
+    width: 55px;
+    height: 33px;
+    border-radius: 20px;
+    font-size: 24px;
+    background-color: rgb(20, 130, 20);
+    color:rgb(0, 30, 0);
+    border: none;
+  }
+  
 /* {
 color:rgb(41, 16, 16);
 color:rgb(58, 45, 34);

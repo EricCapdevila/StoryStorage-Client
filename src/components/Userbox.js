@@ -9,7 +9,7 @@ class Userbox extends Component {
         {isLoggedin ? (
           <div className="drop-down-styles">
             <p className="drop-items">Loged in as: {user.username}</p>
-            <button className='button-drop drop-items'onClick={logout}>Logout</button>
+            <button className='button drop-items'onClick={logout}>Logout</button>
           </div>
         ) : (
           <div className="drop-down-styles">
