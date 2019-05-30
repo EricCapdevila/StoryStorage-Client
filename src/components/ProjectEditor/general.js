@@ -13,7 +13,7 @@ class General extends Component {
     summary: "",
     genre: "",
     isPrivate: "",
-    doRiderect: false,
+    doRedirect: false,
   }
 
   componentDidMount(){
@@ -67,7 +67,7 @@ class General extends Component {
     this.props.deleteProject(this.props.id)
     .then(() =>{
       this.setState({
-        doRiderect: true,
+        doRedirect: true,
       })
     })
   }
@@ -81,7 +81,7 @@ class General extends Component {
           <button type="submit" value="Save Changes" className="editor-button save">Save</button>
           <button href="/projects" onClick={this.deleteProject} className="editor-button delete">Delete</button>
       </div>
-      <div className="form-under-buttons">
+      <div className="editable-box">
         <h1 id='title' contentEditable >{this.state.titlePlaceholder}</h1>
         <p id='summary'contentEditable className='editable-long-text'>{this.state.summaryPlaceholder}</p>
 
@@ -114,7 +114,7 @@ class General extends Component {
       </div>
       </form>
       <Opinions id = {this.props.id}/>
-      {this.state.doRiderect ? <Redirect to="/projects"/>: null}
+      {this.state.doRedirect ? <Redirect to="/projects"/>: null}
       </div>
     );
   }

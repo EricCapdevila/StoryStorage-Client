@@ -16,10 +16,10 @@ class Opinions extends Component {
     let index = this.state.opinions.findIndex((comment)=>{
       return comment._id===id}
       )
-    let copiedArray= this.state.opinions;
+    let allOpinions= this.state.opinions;
     
-    copiedArray.splice(index,1)
-    ProjectServices.updateOne(this.props.id, {opinions: copiedArray})
+    allOpinions.splice(index,1)
+    ProjectServices.updateOne(this.props.id, {opinions: allOpinions})
     .then((project)=> {
       this.setState({opinions:project.opinions})})
     }
@@ -48,7 +48,7 @@ class Opinions extends Component {
                     <p className="comment">{opinion.comment}</p>
                     <p className="rating">{opinion.rating}</p>
                     <button 
-                    className="delete"
+                    className="delete-opinion delete"
                     onClick={()=>this.handleChange(opinion._id)}>x</button>
                   </div>
                 )

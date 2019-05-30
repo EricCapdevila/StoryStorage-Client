@@ -1,8 +1,8 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-// import { withAuth } from "../lib/AuthProvider";
+
 import ProjectServices from "./projects-service";
-import ProjectNav from "./ProjectNav";
+// import ProjectNav from "./ProjectNav";
+import {  Redirect } from "react-router-dom";
 
 import General from './ProjectEditor/general'
 import Characters from './ProjectEditor/characters'

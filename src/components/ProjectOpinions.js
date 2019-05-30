@@ -24,13 +24,12 @@ class ProjectOpinions extends Component{
     this.setState({opinions: this.props.project.opinions });
   }
 
-
   checkAnonymus=()=>{
-    console.log('the checkanonymus props',this.props)
+
     if(this.props.isLoggedin){
      return this.props.user.username  
     }else{
-      return 'Anonymus' 
+      return 'Anonymus User' 
     }
   }
 
@@ -50,10 +49,14 @@ class ProjectOpinions extends Component{
   }
 
   handleFormSubmit = (event) => {
-    event.preventDefault()
-    ProjectServices.updateOne(this.props.project._id, this.state)
-    this.setState({newOpinion:this.state.emptyFields})
-  }
+    let answer = this.state.newOpinion 
+    if(answer.comment){
+      event.preventDefault()
+      ProjectServices.updateOne(this.props.project._id, this.state)
+    }
+      this.setState({newOpinion:this.state.emptyFields})
+    }
+  
 
   render() {
 
@@ -87,11 +90,13 @@ class ProjectOpinions extends Component{
               <input type="number" name="rating" 
               max="10" min="0" 
               onChange= {(e) => this.handleChange(e)}
+              className='input-text'
               value={this.state.newOpinion.rate}/>
 
               <label>Comment</label>
               <input type="text" name="comment" 
               onChange= {(e) => this.handleChange(e)}
+              className='input-text'
               value={this.state.newOpinion.comment}/>
               
               <button action='submit' onClick={this.updateArray}>√</button>

@@ -36,6 +36,7 @@ class Login extends Component {
           type="text"
           name="username"
           value={username}
+          className='input-text'
           onChange={this.handleChange}
         />
         <label>Password:</label>
@@ -43,6 +44,7 @@ class Login extends Component {
           type="password"
           name="password"
           value={password}
+          className='input-text'
           onChange={this.handleChange}
         />
         <input type="submit" value="Login" className='button'/>
