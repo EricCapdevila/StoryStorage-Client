@@ -1,6 +1,8 @@
 
 import React, { Component } from "react";
 import Opinions from './opinions'
+import {  Redirect } from "react-router-dom";
+
 
 class General extends Component {
 
@@ -10,7 +12,8 @@ class General extends Component {
     summaryPlaceholder:"",
     summary: "",
     genre: "",
-    isPrivate: ""
+    isPrivate: "",
+    doRiderect: false,
   }
 
   componentDidMount(){
@@ -60,10 +63,13 @@ class General extends Component {
   privateValue = () => {
     return this.state.isPrivate
   }
-
   deleteProject = () => {
-    window.location.reload();
     this.props.deleteProject(this.props.id)
+    .then(() =>{
+      this.setState({
+        doRiderect: true,
+      })
+    })
   }
  
 
@@ -72,12 +78,12 @@ class General extends Component {
       <div className="project-component">
       <form onSubmit={(e) => this.sendUpdates(e)} >
       <div className="save-delete">  
-          <button type="submit" value="Save Changes" className="editor-button">Save</button>
+          <button type="submit" value="Save Changes" className="editor-button save">Save</button>
           <button href="/projects" onClick={this.deleteProject} className="editor-button delete">Delete</button>
       </div>
       <div className="form-under-buttons">
-      <h1 id='title' contentEditable >{this.state.titlePlaceholder}</h1>
-      <p id='summary'contentEditable className='editable-long-text'>{this.state.summaryPlaceholder}</p>
+        <h1 id='title' contentEditable >{this.state.titlePlaceholder}</h1>
+        <p id='summary'contentEditable className='editable-long-text'>{this.state.summaryPlaceholder}</p>
 
       <div className='form-section'>
               <label>Private:</label>      
@@ -107,12 +113,12 @@ class General extends Component {
   
       </div>
       </form>
-          <Opinions id = {this.props.id}/>
+      <Opinions id = {this.props.id}/>
+      {this.state.doRiderect ? <Redirect to="/projects"/>: null}
       </div>
     );
   }
 }
-
 
 
 export default General

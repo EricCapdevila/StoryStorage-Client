@@ -42,9 +42,9 @@ textarea{
 
 .nav-top-left{
   display: flex;
-  flex-direction:row;
-  width: 25vw;  
+  flex-direction:row;  
   height:95px;
+  width: 13%;
 }
 
 .nav-top-left img{
@@ -103,9 +103,8 @@ ul li img{
   display: none;
   position: absolute;
   top: 100%;
-  right: -32px;
+  right: 3px;
   background-color:rgb(41, 16, 16);
-  /* height:150px; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   color: rgb(160, 142, 110);
@@ -116,6 +115,7 @@ ul li img{
   display:flex;
   flex-direction:column;
   align-content: center;
+  right: 0;
   width: 278px;
   height: 141px;
 }
@@ -163,7 +163,7 @@ hr{
   width: 70%;
 }
 .button{
-  width:300px;
+  /* width:300px; */
   color: rgb(160, 142, 110);
   background-color: rgb(41, 16, 16);
   margin:1%;
@@ -320,7 +320,7 @@ hr{
   height:90.5vh;
   display:flex;
   flex-direction:row;
-  width:100vw;
+  width:100%;
 }
 
 .editable-block{
@@ -335,7 +335,7 @@ hr{
   display:flex;
   justify-content:space-between;  
 }
-.save-delete button:first-of-type{
+.save{
   color:rgb(0, 30, 0);
   background-color:rgb(20, 130, 20);
   border: none;
@@ -423,8 +423,7 @@ hr{
 .project-component{
   height:100%;
   display:flex;
-  width:85%;
-  /* overflow: auto */
+  width: 100%;
 }
 .project-component form{
   width:40%;

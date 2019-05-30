@@ -38,15 +38,10 @@ class ProjectProvider extends React.Component {
     
   updateDB=()=>{
     if(this.state.updatesReceived){
-      // console.log(ProjectServices.updateOne())
-      // console.log('provider updated',this.state)
       ProjectServices.updateOne(this.state.id, this.state.project)
     .then((project) => {
-      // console.log('response')
       this.setState({project: project})})
-    this.setState({updatesReceived: false})
-    }else{
-      // console.log('nothing received')
+      this.setState({updatesReceived: false})
     }
   }
   
@@ -58,7 +53,7 @@ class ProjectProvider extends React.Component {
   }
     
   delete=(id)=>{
-    ProjectServices.deleteOne(id)
+    return ProjectServices.deleteOne(id)
   }
 
   handleEditor = (page) =>{
@@ -77,7 +72,7 @@ class ProjectProvider extends React.Component {
       updateGeneral: this.updateGeneral, 
       deleteProject: this.delete,
       sent: this.toggleUpdatesReceived,
-      id: this.props.match.params.id
+      id: this.props.match.params.id,
       };
 
     let section = this.state.render
@@ -104,7 +99,7 @@ class ProjectProvider extends React.Component {
       
     return (
     <div className="project-editor">
-        <ProjectNav handleEditor={this.handleEditor}/>
+        {/* <ProjectNav handleEditor={this.handleEditor}/> */}
         {
           this.state.project ? 
         section 

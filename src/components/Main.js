@@ -16,7 +16,6 @@ class Main extends Component {
   getProjects = () => {
     ProjectServices.getAll()
     .then((projects) => {
-      console.log('allprojects', projects)
       const publicProjects = projects.filter((project) => {
       return !project.isPrivate
     })

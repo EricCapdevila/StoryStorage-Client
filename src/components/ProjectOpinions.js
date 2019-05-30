@@ -26,7 +26,8 @@ class ProjectOpinions extends Component{
 
 
   checkAnonymus=()=>{
-    if(this.props.isLogedin){
+    console.log('the checkanonymus props',this.props)
+    if(this.props.isLoggedin){
      return this.props.user.username  
     }else{
       return 'Anonymus' 
@@ -34,12 +35,10 @@ class ProjectOpinions extends Component{
   }
 
   handleChange=(e)=>{
-
     let valueHolder = {...this.state.newOpinion, user: this.checkAnonymus()};
     const { value, name} = e.target;
     valueHolder[name]=value
-    //  console.log('currentstate',this.state.opinions)
-
+    
     this.setState({
       newOpinion:{...valueHolder}
     })

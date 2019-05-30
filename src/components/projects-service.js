@@ -20,11 +20,9 @@ class ProjectsManager {
   deleteOne(id){
     return this.projects.delete(`/projects/${id}`)
     .then( (res) => {
-
-      console.log('delete response',res)
-
+        console.log('res',res)
       return res
-      
+
     } )
     .catch( (err) => console.log(err));
   }
