@@ -6,7 +6,6 @@ A desktop app to help writers store their ideas and plan their projects, list th
 
 ## User Stories
 
--  **404:**
 -  **Signup:** As an anon I can sign up in the platform, download, rate and comment other user's stories.
 -  **Login:** As a user I can create new projects, store them.
 -  **Logout:** As a user I can logout so noone sees my ideas not modifies my projects.
