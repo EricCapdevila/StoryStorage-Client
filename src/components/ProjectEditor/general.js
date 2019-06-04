@@ -76,46 +76,46 @@ class General extends Component {
   render() {
     return (
       <div className="project-component">
-      <form onSubmit={(e) => this.sendUpdates(e)} >
-      <div className="save-delete">  
-          <button type="submit" value="Save Changes" className="editor-button save">Save</button>
-          <button href="/projects" onClick={this.deleteProject} className="editor-button delete">Delete</button>
-      </div>
-      <div className="editable-box">
-        <h1 id='title' contentEditable >{this.state.titlePlaceholder}</h1>
-        <p id='summary'contentEditable className='editable-long-text'>{this.state.summaryPlaceholder}</p>
-
-      <div className='form-section'>
-              <label>Private:</label>      
-              <input 
-              type="checkbox" 
-              className='checkbox'
-              checked = {this.privateValue()}
-              onChange={ (e) => this.handleRadioChange(e) }/>
-            </div> 
-
-        <div className='form-section'>
-          <label>Genre:</label>
-          <select 
-          name="genre" 
-          value={this.state.genre} 
-          onChange={ (e) => this.handleChange(e) }>
-              <option >--Choose One--</option>
-              <option value="Science Fiction">Science Fiction</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Romance">Romance</option>
-              <option value="Historical">Historical</option>
-              <option value="Horror">Horror</option>
-              <option value="Crime">Crime</option>
-              <option value="Other">Other</option>
-          </select>
+        <form onSubmit={(e) => this.sendUpdates(e)} >
+          <div className="save-delete">  
+            <button type="submit" value="Save Changes" className="editor-button save">Save</button>
+            <button href="/projects" onClick={this.deleteProject} className="editor-button delete">Delete</button>
           </div>
-  
-      </div>
-      </form>
-      <Opinions id = {this.props.id}/>
-      {this.state.doRedirect ? <Redirect to="/projects"/>: null}
-      </div>
+          <div className="editable-box">
+            <h1 id='title' contentEditable >{this.state.titlePlaceholder}</h1>
+            <p id='summary'contentEditable className='editable-long-text'>{this.state.summaryPlaceholder}</p>
+
+          <div className='form-section'>
+            <label>Private:</label>      
+            <input 
+            type="checkbox" 
+            className='checkbox'
+            checked = {this.privateValue()}
+            onChange={ (e) => this.handleRadioChange(e) }/>
+          </div> 
+
+          <div className='form-section'>
+            <label>Genre:</label>
+              <select 
+              name="genre" 
+              value={this.state.genre} 
+              onChange={ (e) => this.handleChange(e) }>
+                  <option >--Choose One--</option>
+                  <option value="Science Fiction">Science Fiction</option>
+                  <option value="Fantasy">Fantasy</option>
+                  <option value="Romance">Romance</option>
+                  <option value="Historical">Historical</option>
+                  <option value="Horror">Horror</option>
+                  <option value="Crime">Crime</option>
+                  <option value="Other">Other</option>
+              </select>
+            </div>
+      
+            </div>
+          </form>
+          <Opinions id = {this.props.id}/>
+          {this.state.doRedirect ? <Redirect to="/projects"/>: null}
+        </div>
     );
   }
 }

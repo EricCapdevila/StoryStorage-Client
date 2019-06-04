@@ -63,8 +63,8 @@ class MyProjects extends Component {
         {
           this.state.showingForm?
           (<div className="popup-back" >
-          <button onClick={this.toggleForm} className="ex-button">x</button>
-          <AddProject getProjects={this.getMyProjects} toggleForm= {this.toggleForm}/>
+            <button onClick={this.toggleForm} className="ex-button">x</button>
+            <AddProject getProjects={this.getMyProjects} toggleForm= {this.toggleForm}/>
           </div>)
           :
           <button onClick={this.toggleForm} className="plus-button">+</button>

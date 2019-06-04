@@ -14,7 +14,6 @@
 //     }
 //   }
   
-
 //   componentDidMount(){
 //     let title = document.querySelector('#title')
 //     title.addEventListener('input', (event) => {

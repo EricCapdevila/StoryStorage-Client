@@ -25,10 +25,9 @@ class ProjectProvider extends React.Component {
 
   componentDidMount(){
     ProjectServices.getOne(this.state.id)
-      .then((project) => {
-        this.setState({project: project})
-      }) 
-
+    .then((project) => {
+      this.setState({project: project})
+    }) 
   }
 
   componentDidUpdate(){
@@ -47,9 +46,7 @@ class ProjectProvider extends React.Component {
   
   
   updateGeneral=(content)=>{
-    // console.log('content',content)
     this.setState({ project:content })
-     
   }
     
   delete=(id)=>{
