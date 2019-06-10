@@ -6,26 +6,26 @@ A desktop app to help writers store their ideas and plan their projects, list th
 
 ## User Stories
 
--  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
 -  **Signup:** As an anon I can sign up in the platform, download, rate and comment other user's stories.
 -  **Login:** As a user I can create new projects, store them.
 -  **Logout:** As a user I can logout so noone sees my ideas not modifies my projects.
--  **Add Idea** As a user I can store ideas for future projects.
--  **List ideas** As a user I can check my ideas and make them into a project.
 -  **Add Project** As a user I can create a new project and make it public so others can see and rate it.
 -  **See ratings** As a user I can see what others think of my project.
 -  **Edit my Project** As a user I can edit any part of the project, characters, plot, timeline, etc.
 -  **List Stories** As a user I can check out other user's projects.
 -  **Rate Stories** As a user I can rate and comment other projects.
--  **Search Stories** As a user I can search stories by author and genre.
+
 
 
 ## Backlog
 
+- **file upload** So users can upload their files with the actual story in a pdf file.
+- **Search Stories** As a user I can search stories by author and genre.
+- **Story Fields** Use the character model i have, and add other fields in the model like locations, timeline, etc.
 - **mobile version** Since it is an app for writers it makes more sense to make it desktop first.
 - **friend list** You can befriend users.
 - **Co-authoring** Two or more users can have acces to the same project and modify it, each writing in distinctive colors.
-- **file upload** So users can upload their files with the actual story in a pdf file.
+- **404** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
 
   
 # Client
@@ -40,9 +40,8 @@ A desktop app to help writers store their ideas and plan their projects, list th
 |  `/main`      | main | anon / user | see all user projects
 |  `/Projects/` | Projects | user only | see user projects
 | `/myProject/:id/`| project | user only | se one of the user projects
-|  `/myIdeas/`  | Ideas | user | comment a project
 |  `/myProjects`| MyProjects | user only | see all current projects
-|  `**`         | NotFoundPageComponent | public | 
+
 
 
 ## Components
@@ -233,10 +232,8 @@ The url to your repository and to your deployed project
 [Client repository Link](http://github.com)
 [Server repository Link](http://github.com)
 
-[Deploy Link](http://heroku.com)
+https://story-storage.herokuapp.com/
 
 ### Slides
 
-The url to your presentation slides
-
-[Slides Link](http://slides.com)
+https://docs.google.com/presentation/d/16YHQP6a8ksB7lIye2rVg4GV8TP26AgOLFCxPAyrriqE/edit#slide=id.p
