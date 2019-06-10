@@ -534,6 +534,8 @@ hr{
 
 .mainPage{
   overflow-y: scroll;
+  -webkit-mask-image: -webkit-gradient(linear, left 7%, left top, 
+  from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
 
 .project-comment-card{
@@ -641,6 +643,23 @@ hr{
     color:rgb(20, 130, 20);
   }
   
+  #searchbar{
+    width: 300px;
+    background-color: rgb(168, 156, 133);
+    border:none;
+    height: 26px;
+
+  }
+  .search-container{
+    display:flex;
+    justify-content: center;
+    background-color: rgb(41, 16, 16);
+    margin: 50px;
+    padding: 20px;
+    width: 481px;
+    align-self: center;
+    border-radius: 20px;
+  }
 /* {
 color:rgb(41, 16, 16);
 color:rgb(58, 45, 34);

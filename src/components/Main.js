@@ -29,13 +29,20 @@ class Main extends Component {
 
     filterProjects = (string) => {
       if(string){
-
         let fitleredArray = this.state.PublicProjects.filter((project)=>{
-          return project.title.includes(string)
+          return project.title.toLowerCase().includes(string.toLowerCase())
         })
         this.setState({ FilteredProjects: fitleredArray})
-    
-        console.log('filtered', fitleredArray)
+      }else{
+        this.setState({FilteredProjects: this.state.PublicProjects})
+      }
+    }
+    filterGenre = (string) => {
+      if(string){
+        let fitleredArray = this.state.PublicProjects.filter((project)=>{
+          return project.genre === string
+        })
+        this.setState({ FilteredProjects: fitleredArray})
       }else{
         this.setState({FilteredProjects: this.state.PublicProjects})
       }
@@ -49,7 +56,7 @@ class Main extends Component {
     console.log('publicProjects', this.state.publicProjects);
     return (
      <div className= 'bookshelf-background'>      
-       <SearchBar filtering={this.filterProjects}/>
+       <SearchBar filtering={this.filterProjects} byGenre={this.filterGenre}/>
       {      
         !this.state.FilteredProjects.length===0?
           

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ProjectServices from "./projects-service";
 
 
 class Searchbar extends Component {
@@ -13,15 +12,35 @@ class Searchbar extends Component {
     
   handleChange=(e)=>{
     let text = e.target.value
-    console.log('props',this.props)
-    console.log('text',text) //works well
     this.props.filtering(text)
     }
 
+  handleChangeGenre=(e)=>{
+    let text = e.target.value
+    this.props.byGenre(text)
+    }
+    
+
   render() {
     return (
-     <div>
-      <input  id="searchbar" onChange={(e) => this.handleChange(e)}></input>
+     <div className='search-container'>
+      <input   
+      placeholder='Search Title'
+      id="searchbar" onChange={this.handleChange}></input>
+      <label>Genre:</label>
+            <select 
+            name="genre" 
+            value={this.state.genre} 
+            onChange={this.handleChangeGenre}>
+              <option value=''>None</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Romance">Romance</option>
+              <option value="Historical">Historical</option>
+              <option value="Horror">Horror</option>
+              <option value="Crime">Crime</option>
+              <option value="Other">Other</option>
+            </select>
      </div>
     );
   }
