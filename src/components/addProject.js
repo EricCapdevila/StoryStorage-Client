@@ -12,7 +12,7 @@ class AddProject extends Component {
    
   handleFormSubmit = (event) => {
     event.preventDefault();
-    if(this.state.title, this.state.genre, this.state.summary){
+    if(this.state.title && this.state.genre && this.state.summary){
       ProjectServices.addOne(this.state)
       .then(()=>{
         this.setState({ title: "", genre: "Other", summary: "", isPrivate: false});
@@ -63,7 +63,7 @@ class AddProject extends Component {
             name="genre" 
             value={this.state.genre} 
             onChange={ (e) => this.handleChange(e) }>
-              <option >--Choose One--</option>
+          
               <option value="Science Fiction">Science Fiction</option>
               <option value="Fantasy">Fantasy</option>
               <option value="Romance">Romance</option>

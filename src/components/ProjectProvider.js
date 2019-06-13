@@ -2,7 +2,7 @@ import React from "react";
 
 import ProjectServices from "./projects-service";
 // import ProjectNav from "./ProjectNav";
-import {  Redirect } from "react-router-dom";
+
 
 import General from './ProjectEditor/general'
 import Characters from './ProjectEditor/characters'

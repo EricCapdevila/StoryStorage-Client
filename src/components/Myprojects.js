@@ -15,7 +15,6 @@ class MyProjects extends Component {
   }
 
   getMyProjects = () => {
-    console.log('hola')
     ProjectServices.getAll()
     .then((projects) => {
       const allMyProjects = projects.filter((project) => {

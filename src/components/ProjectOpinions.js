@@ -56,11 +56,16 @@ class ProjectOpinions extends Component{
     }
       this.setState({newOpinion:this.state.emptyFields})
     }
+  renderFile = (url) =>{
+    console.log(url)
+    var win = window.open();
+    win.document.write('<iframe src="' + url  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;"></iframe>');
+  }
   
 
   render() {
 
-    const {title, summary, genre, author} = this.props.project
+    const {title, summary, genre, author, file} = this.props.project
     return (
       <section className="project-comment-card">
         <div className="project-description">
@@ -68,6 +73,12 @@ class ProjectOpinions extends Component{
           <h3>{title}</h3>
           <p>by {author.username}</p>
           <p>{summary}</p>
+          {
+            file?
+            <button onClick={()=> this.renderFile(file)}>Read me</button>
+            :
+            null
+          }
         </div>
         <div className="project-comments">
           <div className="comments-only">

@@ -72,7 +72,7 @@ class AuthProvider extends Component {
 
   login = user => {
     const { username, password } = user;
-    auth
+    return auth
       .login({ username, password })
       .then(user => {
         this.setState({
@@ -80,7 +80,7 @@ class AuthProvider extends Component {
           user
         });
       })
-      .catch(() => {});
+      .catch(() => {console.log('no log in with success')});
   };
 
   logout = () => {

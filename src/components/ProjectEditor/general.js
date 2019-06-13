@@ -35,23 +35,35 @@ class General extends Component {
     title:project.title,
     summary:project.summary,
     genre:project.genre,
-    isPrivate:project.isPrivate
+    isPrivate:project.isPrivate,
+    file:project.file
     })
    
   }
 
 
-  sendUpdates=(e)=>{
-    e.preventDefault()
-    const {title, summary, genre, isPrivate} = this.state
-    const content={title, summary, genre, isPrivate}
+  sendUpdates=(event)=>{
+    event.preventDefault()
+    // let formdata = new FormData();
+    // formdata.append('file', this.state.file)
+    const {title, summary, genre, isPrivate, file} = this.state
+    const content={title, summary, genre, isPrivate, file}
     this.props.updateGeneral(content)
     this.props.sent()
+    // console.log(formdata.file)
   }
   
-  handleChange = (e) => {
-    const {name, value} = e.target;
+  handleChange = (event) => {
+    const {name, value} = event.target;
     this.setState({[name]:value})
+    console.log('file',this.state.file)
+  }
+
+  handleFile = (event) => {
+    const selectedFile = document.getElementById('input').files[0];
+    const reader = new FileReader()
+    reader.readAsDataURL(selectedFile)
+    reader.onload =()=>{ this.setState({file: reader.result})}
   }
 
   handleRadioChange = (event) => {
@@ -96,23 +108,23 @@ class General extends Component {
 
           <div className='form-section'>
             <label>Genre:</label>
-              <select 
-              name="genre" 
-              value={this.state.genre} 
-              onChange={ (e) => this.handleChange(e) }>
-                  <option >--Choose One--</option>
-                  <option value="Science Fiction">Science Fiction</option>
-                  <option value="Fantasy">Fantasy</option>
-                  <option value="Romance">Romance</option>
-                  <option value="Historical">Historical</option>
-                  <option value="Horror">Horror</option>
-                  <option value="Crime">Crime</option>
-                  <option value="Other">Other</option>
-              </select>
-            </div>
-      
-            </div>
-          </form>
+            <select 
+            name="genre" 
+            value={this.state.genre} 
+            onChange={ (e) => this.handleChange(e) }>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Romance">Romance</option>
+                <option value="Historical">Historical</option>
+                <option value="Horror">Horror</option>
+                <option value="Crime">Crime</option>
+                <option value="Other">Other</option>
+            </select>
+          </div>
+          <input type="file" id="input" name='file' onChange={this.handleFile}/>
+          {/* <button className="editor-button save">Upload</button> */}
+          </div>
+        </form>
           <Opinions id = {this.props.id}/>
           {this.state.doRedirect ? <Redirect to="/projects"/>: null}
         </div>

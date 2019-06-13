@@ -20,7 +20,6 @@ class ProjectsManager {
   deleteOne(id){
     return this.projects.delete(`/projects/${id}`)
     .then( (res) => {
-        console.log('res',res)
       return res
 
     } )
@@ -33,7 +32,7 @@ class ProjectsManager {
     summary, chapters, 
     characters, locations, 
     timeline, misc, author, 
-    opinions, isPrivate  } = updates
+    opinions, isPrivate, file  } = updates
 
     return this.projects.put(`/projects/${id}`,
     {
@@ -41,7 +40,7 @@ class ProjectsManager {
       summary, chapters, 
       characters, locations, 
       timeline, misc, author, 
-      opinions, isPrivate  })
+      opinions, isPrivate, file })
     .then( (response) => {
       return response.data
     })
@@ -53,7 +52,6 @@ class ProjectsManager {
     const {title, genre, summary, isPrivate} = newProject;
     return this.projects
       .post("/projects/", {title, genre, summary, isPrivate})
-      // .then( () => this.props.history.push('/projects') );
   }
 }
 

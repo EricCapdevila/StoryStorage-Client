@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
  import { withAuth } from "../lib/AuthProvider";
 import ProjectServices from "./projects-service";
 import ProjectOpinions from "../components/ProjectOpinions"
@@ -53,7 +52,6 @@ class Main extends Component {
 }
             
   render() {
-    console.log('publicProjects', this.state.publicProjects);
     return (
      <div className= 'bookshelf-background'>      
        <SearchBar filtering={this.filterProjects} byGenre={this.filterGenre}/>

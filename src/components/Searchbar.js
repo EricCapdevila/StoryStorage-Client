@@ -32,7 +32,7 @@ class Searchbar extends Component {
             name="genre" 
             value={this.state.genre} 
             onChange={this.handleChangeGenre}>
-              <option value=''>None</option>
+              <option value=''> Genre: None</option>
               <option value="Science Fiction">Science Fiction</option>
               <option value="Fantasy">Fantasy</option>
               <option value="Romance">Romance</option>
